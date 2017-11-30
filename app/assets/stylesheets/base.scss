@@ -1,0 +1,58 @@
+.alert{
+  position: relative;
+  font-size: 1em; 
+  color: #fff;
+  margin: 13m auto;
+  padding: 0.5em;
+
+
+  &.alert-notice{
+    background-color: indigo;  
+  }
+
+  &.alert-success{
+    background-color: green;  
+    
+  }
+
+  &.alert-error{
+    background-color: red;  
+    
+  }
+}
+
+.file-field {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 1em;
+
+  input {
+    margin: 0 1em;
+  }
+}
+
+
+input {
+  margin: 1em;
+}
+
+body {
+  padding: 2em;
+}
+
+table {
+  thead {
+    th {
+      padding: 0.8em;
+    }
+
+  }
+
+  tbody {
+    tr {
+      td {
+        padding: 0.8em;
+      }
+    }
+  }
+}

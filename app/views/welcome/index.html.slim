@@ -1,0 +1,42 @@
+h1 Sample Project
+p
+  | Please complete the items on the checklist.
+  
+  span<> = link_to 'This is the CSV to use.', 'test.csv'
+
+h3 Checklist
+ol
+  li Create model to store CSV data
+  li Upload CSV via a form
+  li Save CSV records to database
+  li Display success/error message
+  li Display users in table
+
+hr
+
+- flash.each do |key, value|
+  div class="alert alert-#{key}" #{value.html_safe}
+
+h2 Users Bulk Upload
+
+div id='userUploadContainer'
+  = form_with url: users_bulk_upload_path do |f|
+    .file-field
+      = f.label :users_csv, "Please select the '.csv' file for upload and press 'Upload'"
+      = f.file_field :users_csv
+    = f.submit 'Upload'
+
+hr
+
+h2 = link_to 'Users', users_path
+
+- if @users.present?
+  table.table-bordered.table-striped.table-over.table-responsive
+    thead
+      - @users.first.attributes.keys.each do |fieldname|
+        th = fieldname.humanize
+    tbody
+      - @users.each do |user|
+        tr
+          - user.attributes.each do |field, value|
+            td = value

@@ -1,0 +1,19 @@
+
+h2 Users
+
+- if @users.present?
+  table.table-bordered.table-striped.table-over.table-responsive
+    thead
+      th Id
+      th Name
+      th Date
+      th Number
+    tbody
+      - @users.each do |user|
+        tr
+          td = user.id
+          td = user.name.humanize
+          td = user.date.strftime("%d %B, %Y")
+          td = user.number
+- else
+  p No users found
